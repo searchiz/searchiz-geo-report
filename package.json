@@ -1,0 +1,17 @@
+{
+  "name": "searchiz-geo-report",
+  "version": "1.0.0",
+  "description": "An open format for AI search visibility reports: sampled answers, mentions, recommendations, citations and the sample size behind every rate.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": { ".": "./src/index.js", "./schema.json": "./schema.json" },
+  "bin": { "searchiz-geo-report": "bin/searchiz-geo-report.js" },
+  "files": ["src", "bin", "schema.json", "examples", "README.md", "LICENSE"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test" },
+  "keywords": ["geo", "ai search", "llm visibility", "json schema", "report format"],
+  "homepage": "https://github.com/paulopmtl/searchiz-geo-report",
+  "repository": { "type": "git", "url": "git+https://github.com/paulopmtl/searchiz-geo-report.git" },
+  "license": "MIT",
+  "author": "Searchiz <support@searchiz.com> (https://searchiz.com)"
+}

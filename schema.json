@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/paulopmtl/searchiz-geo-report/blob/main/schema.json",
+  "title": "searchiz-geo-report/v1",
+  "description": "Sampled AI-assistant answers about one business, with the sample they come from. Failed or unsupported answers are kept but never counted.",
+  "type": "object",
+  "required": ["format", "generated_at", "subject", "period", "answers", "summary"],
+  "additionalProperties": false,
+  "properties": {
+    "format": { "const": "searchiz-geo-report/v1" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "generator": { "type": "object", "properties": { "name": { "type": "string" }, "url": { "type": "string" } } },
+    "subject": {
+      "type": "object", "required": ["name"], "additionalProperties": false,
+      "properties": { "name": { "type": "string", "minLength": 1 }, "domain": { "type": ["string", "null"] } }
+    },
+    "period": {
+      "type": "object", "required": ["from", "to"], "additionalProperties": false,
+      "properties": { "from": { "type": "string", "format": "date-time" }, "to": { "type": "string", "format": "date-time" } }
+    },
+    "answers": { "type": "array", "items": { "$ref": "#/$defs/answer" } },
+    "summary": {
+      "type": "object", "required": ["sample_size", "mentions", "recommendations", "rate"], "additionalProperties": false,
+      "properties": {
+        "sample_size": { "type": "integer", "minimum": 0, "description": "Valid (status ok) discovery answers." },
+        "mentions": { "type": "integer", "minimum": 0 },
+        "recommendations": { "type": "integer", "minimum": 0 },
+        "rate": { "type": ["number", "null"], "minimum": 0, "maximum": 1, "description": "mentions / sample_size, rounded to 4 decimals; null when the sample is empty." }
+      }
+    }
+  },
+  "$defs": {
+    "answer": {
+      "type": "object",
+      "required": ["question", "kind", "engine", "method", "collected_at", "status", "mention", "recommendation", "position", "citations"],
+      "additionalProperties": false,
+      "properties": {
+        "question": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["discovery", "branded"], "description": "discovery questions never name the business; only they are counted." },
+        "engine": { "type": "string", "examples": ["chatgpt", "gemini", "copilot", "perplexity", "google_ai_overviews", "google_ai_mode", "claude"] },
+        "method": { "enum": ["web", "api"], "description": "web: the assistant's public interface; api: a model API, a different measurement." },
+        "collected_at": { "type": ["string", "null"], "format": "date-time" },
+        "status": { "enum": ["ok", "failed", "unsupported"], "description": "Only ok answers say anything about the business." },
+        "mention": { "type": ["boolean", "null"] },
+        "recommendation": { "type": ["boolean", "null"] },
+        "position": { "type": ["integer", "null"], "minimum": 1, "description": "1-based place among the businesses the answer named." },
+        "citations": {
+          "type": "array",
+          "items": {
+            "type": "object", "required": ["url", "domain", "position"], "additionalProperties": false,
+            "properties": { "url": { "type": "string" }, "domain": { "type": "string" }, "position": { "type": "integer", "minimum": 1 } }
+          }
+        }
+      }
+    }
+  }
+}

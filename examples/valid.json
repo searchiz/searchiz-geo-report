@@ -1,0 +1,84 @@
+{
+  "format": "searchiz-geo-report/v1",
+  "generated_at": "2026-10-01T12:00:00Z",
+  "generator": {
+    "name": "Searchiz",
+    "url": "https://searchiz.com"
+  },
+  "subject": {
+    "name": "Lumen Makeup Studio",
+    "domain": "example.com"
+  },
+  "period": {
+    "from": "2026-09-24T00:00:00Z",
+    "to": "2026-10-01T00:00:00Z"
+  },
+  "answers": [
+    {
+      "question": "best makeup artist in Sample City",
+      "kind": "discovery",
+      "engine": "chatgpt",
+      "method": "web",
+      "collected_at": "2026-09-30T14:02:11Z",
+      "status": "ok",
+      "mention": true,
+      "recommendation": true,
+      "position": 2,
+      "citations": [
+        {
+          "url": "https://www.theknot.com/marketplace/sample-city",
+          "domain": "theknot.com",
+          "position": 1
+        }
+      ]
+    },
+    {
+      "question": "best makeup artist in Sample City",
+      "kind": "discovery",
+      "engine": "gemini",
+      "method": "api",
+      "collected_at": "2026-09-30T14:03:40Z",
+      "status": "ok",
+      "mention": false,
+      "recommendation": false,
+      "position": null,
+      "citations": [
+        {
+          "url": "https://www.yelp.com/search?find_desc=makeup",
+          "domain": "yelp.com",
+          "position": 1
+        }
+      ]
+    },
+    {
+      "question": "recommended bridal makeup artist in Sample City",
+      "kind": "discovery",
+      "engine": "perplexity",
+      "method": "web",
+      "collected_at": null,
+      "status": "failed",
+      "mention": null,
+      "recommendation": null,
+      "position": null,
+      "citations": []
+    },
+    {
+      "question": "is Lumen Makeup Studio good for weddings",
+      "kind": "branded",
+      "engine": "chatgpt",
+      "method": "web",
+      "collected_at": "2026-09-30T14:05:02Z",
+      "status": "ok",
+      "mention": true,
+      "recommendation": true,
+      "position": 1,
+      "citations": []
+    }
+  ],
+  "summary": {
+    "sample_size": 2,
+    "mentions": 1,
+    "recommendations": 1,
+    "rate": 0.5
+  }
+}
