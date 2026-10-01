@@ -10,8 +10,8 @@
   "engines": { "node": ">=20" },
   "scripts": { "test": "node --test" },
   "keywords": ["geo", "ai search", "llm visibility", "json schema", "report format"],
-  "homepage": "https://github.com/paulopmtl/searchiz-geo-report",
-  "repository": { "type": "git", "url": "git+https://github.com/paulopmtl/searchiz-geo-report.git" },
+  "homepage": "https://github.com/searchiz/searchiz-geo-report",
+  "repository": { "type": "git", "url": "git+https://github.com/searchiz/searchiz-geo-report.git" },
   "license": "MIT",
   "author": "Searchiz <support@searchiz.com> (https://searchiz.com)"
 }

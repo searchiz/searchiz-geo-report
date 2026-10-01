@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/paulopmtl/searchiz-geo-report/blob/main/schema.json",
+  "$id": "https://github.com/searchiz/searchiz-geo-report/blob/main/schema.json",
   "title": "searchiz-geo-report/v1",
   "description": "Sampled AI-assistant answers about one business, with the sample they come from. Failed or unsupported answers are kept but never counted.",
   "type": "object",
